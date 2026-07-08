@@ -1,26 +1,29 @@
 # Choroid plexus, sTREM2, and cognition across the AD continuum
 
-This repository contains the R analysis code used for the cross-sectional ADNI
-analysis of choroid plexus volume, CSF sTREM2, tau-related biomarkers, A・趣ｽｲ, and
-cognition.
+This repository contains the R analysis code used for a cross-sectional ADNI
+study of choroid plexus volume, CSF sTREM2, tau-related biomarkers,
+amyloid-beta, and cognition.
 
-The code here is intentionally limited to the analysis workflow. It does not
-generate submission documents.
+The code is limited to the analysis workflow. It does not generate submission
+documents.
 
 ## What is included
 
 The pipeline covers the analyses reported in the study:
 
-- construction of the baseline analytic dataset from the local ADNI-derived files;
+- construction of the baseline analytic dataset from local ADNI-derived files;
 - descriptive statistics and diagnostic-stage group comparisons;
 - primary covariate-adjusted regression models;
-- partial-correlation and linear-model summaries for ChP/ICV, sTREM2, Tau, P-Tau, and A・趣ｽｲ;
+- partial-correlation and linear-model summaries for ChP/ICV, sTREM2, Tau,
+  P-Tau, and amyloid-beta;
 - false-discovery-rate adjustment;
 - pairwise matching and overlap-weighting robustness checks;
-- A・趣ｽｲ ceiling/censoring sensitivity checks;
+- amyloid-beta ceiling/censoring sensitivity checks;
 - alternative ChP definitions and structure-specificity models;
-- diagnosis-adjusted, biologically defined, phase/site/protocol, time-window, and lateral-ventricle sensitivity analyses;
-- latent-variable SEM/path-decomposition models and bootstrap confidence intervals;
+- diagnosis-adjusted, biologically defined, phase/site/protocol, time-window,
+  and lateral-ventricle sensitivity analyses;
+- latent-variable SEM/path-decomposition models and bootstrap confidence
+  intervals;
 - optional 80-participant manually corrected ChP segmentation subset checks.
 
 ## What is not included
@@ -35,14 +38,14 @@ deliberately excluded from this public code release.
 
 ```text
 .
-隨乗㈹讌ｳ隨渉 R/                  # helper functions shared by the analysis scripts
-隨乗㈹讌ｳ隨渉 scripts/            # numbered analysis modules
-隨乗㈹讌ｳ隨渉 config/             # light-weight analysis settings
-隨乗㈹讌ｳ隨渉 data/
-隨上・  隨乗㈹讌ｳ隨渉 README.md
-隨上・  隨乗喚讌ｳ隨渉 raw/            # local ADNI-derived input files, not tracked by Git
-隨乗㈹讌ｳ隨渉 results/            # timestamped outputs, not tracked by Git
-隨乗喚讌ｳ隨渉 run_analysis.R      # pipeline runner
+|-- R/                  # helper functions shared by the analysis scripts
+|-- scripts/            # numbered analysis modules
+|-- config/             # lightweight analysis settings
+|-- data/
+|   |-- README.md
+|   `-- raw/            # local ADNI-derived input files, not tracked by Git
+|-- results/            # timestamped outputs, not tracked by Git
+`-- run_analysis.R      # pipeline runner
 ```
 
 ## Input files
@@ -57,9 +60,9 @@ Optional:
 - `manual_chp_qc_integrated_80.csv`
 
 The expected variables are listed in `scripts/project_config.R`. In brief, the
-main workflow expects diagnostic group, age, sex, education, APOE ・趣ｽｵ4 status,
-ChP/ICV, bilateral ChP volume, estimated intracranial volume, sTREM2, A・趣ｽｲ, Tau,
-P-Tau, comparator brain volumes, and cognitive measures.
+main workflow expects diagnostic group, age, sex, education, APOE epsilon 4
+status, ChP/ICV, bilateral ChP volume, estimated intracranial volume, sTREM2,
+amyloid-beta, Tau, P-Tau, comparator brain volumes, and cognitive measures.
 
 ## Running the analysis
 
@@ -104,15 +107,15 @@ SEM diagnostics and small text diagnostics, when produced, are written to:
 results/<run_id>/diagnostics/
 ```
 
-These diagnostic files are not article drafts; they are just a convenient
-way to keep model checks near the CSV outputs.
+These diagnostic files are not article drafts; they simply keep model checks
+near the CSV outputs.
 
 ## R packages
 
 Core analyses use base R plus a small set of common packages:
 
 - `readxl` for reading Excel files, if local inputs are provided as Excel files;
-- `survival` for censored A・趣ｽｲ sensitivity models;
+- `survival` for censored amyloid-beta sensitivity models;
 - `lavaan` for latent-variable SEM models.
 
 The scripts stop with a clear message if a required package is missing.
@@ -120,13 +123,13 @@ The scripts stop with a clear message if a required package is missing.
 ## Reproducibility notes
 
 The random seed is set in `scripts/project_config.R`. The runner also writes
-`sessionInfo.txt` into each result folder so that package versions are easy to
-check later.
+`sessionInfo.txt` into each result folder so package versions can be checked
+later.
 
 The overlap-weighting module is used as a demographic rebalancing sensitivity
 check. The primary models remain full-sample covariate-adjusted models.
 
-The SEM modules are best read as cross-sectional path-decomposition analyses,
+The SEM modules should be read as cross-sectional path-decomposition analyses,
 not as causal mediation or temporal-ordering tests.
 
 ## Code availability statement

@@ -286,13 +286,13 @@ export_three_line_table(
   data = table_data,
   csv_path = table_csv,
   html_path = table_html,
-  title = "A・趣ｽｲ Ceiling Sensitivity Analysis"
+  title = "amyloid-beta Ceiling Sensitivity Analysis"
 )
 
 append_analysis_log(
   project_root = project_root,
   analysis_name = "06c_abeta_truncation_sensitivity",
   output_files = c(summary_path, regression_path, partial_path, table_csv, table_html),
-  note = "Completed A・趣ｽｲ ceiling sensitivity analyses by comparing full-sample results with analyses excluding observations at the 1700 pg/mL assay ceiling.",
+  note = "Completed amyloid-beta ceiling sensitivity analyses by comparing full-sample results with analyses excluding observations at the 1700 pg/mL assay ceiling.",
   summary_dir = result_summary_dir
 )

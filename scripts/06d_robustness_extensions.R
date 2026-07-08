@@ -70,7 +70,7 @@ calculate_vif_from_matrix <- function(model_df, predictor_names) {
 
 run_abeta_censored_models <- function(data, threshold, group_name = "Overall") {
   if (!requireNamespace("survival", quietly = TRUE)) {
-    stop("Package 'survival' is required for censored A・趣ｽｲ sensitivity analysis.", call. = FALSE)
+    stop("Package 'survival' is required for censored amyloid-beta sensitivity analysis.", call. = FALSE)
   }
 
   alias_map <- c(
@@ -317,6 +317,6 @@ append_analysis_log(
     structure_specificity_path,
     fdr_manifest_path
   ),
-  note = "Added FDR-adjusted summary outputs, right-censored A・趣ｽｲ sensitivity models, matched-sample reruns of key main findings, collinearity diagnostics, alternative ChP definition analyses, and structure-specificity regression models.",
+  note = "Added FDR-adjusted summary outputs, right-censored amyloid-beta sensitivity models, matched-sample reruns of key main findings, collinearity diagnostics, alternative ChP definition analyses, and structure-specificity regression models.",
   summary_dir = result_summary_dir
 )
