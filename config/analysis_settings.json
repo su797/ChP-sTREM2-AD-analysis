@@ -1,0 +1,26 @@
+{
+  "language": "en",
+  "group_order": ["CN", "MCI", "AD"],
+  "descriptive": {
+    "digits": 2,
+    "continuous_overall": ["S_AGE", "PTEDUCAT", "MMSE", "MOCA", "CDRSB", "ADAS13"],
+    "categorical_overall": ["S_PTGENDER_label", "APOE401_label"],
+    "continuous_by_group": ["S_AGE", "PTEDUCAT", "MMSE", "MOCA", "CDRSB", "ADAS13"],
+    "categorical_by_group": ["S_PTGENDER_label", "APOE401_label"]
+  },
+  "display_labels": {
+    "variables": {
+      "ChPICV": {"en": "ChP/ICV"},
+      "ChP_SUM": {"en": "Bilateral ChP volume"},
+      "RChPICV": {"en": "Right ChP/ICV"},
+      "MSD_STREM2CORRECTED": {"en": "sTREM2"},
+      "S_ABETA": {"en": "A・趣ｽｲ"},
+      "TAU": {"en": "Tau"},
+      "PTAU": {"en": "P-Tau"},
+      "LV_SUM": {"en": "Lateral ventricular volume"},
+      "WholeBrain": {"en": "Whole-brain volume"},
+      "Cog_MMSE_MOCA": {"en": "Cognition (MMSE + MoCA)"}
+    }
+  },
+  "project_config_override": {}
+}
