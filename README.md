@@ -7,9 +7,28 @@ amyloid-beta, and cognition.
 The code is limited to the analysis workflow. It does not generate submission
 documents.
 
+## Analyses accompanying the current manuscript
+
+For **Choroid plexus volume as a candidate imaging biomarker in Alzheimer's
+disease**, the materials from Additional file 3 are in
+[`publication_analysis/`](publication_analysis/README.txt):
+
+- Incremental explanatory models and their saved results are in the top level
+  of that directory.
+- [`SEM/`](publication_analysis/SEM/README.md) contains the three-indicator
+  cognition models, model syntax, and bootstrap results.
+- [`Matching/`](publication_analysis/Matching/README.txt) contains the paired
+  diagnostic-group comparisons used for Supplementary Figure S11.
+
+Use these versions for the manuscript's incremental, SEM, and S11 analyses.
+They are run separately from `run_analysis.R`; the older SEM and matching
+modules in the general pipeline below do not replace them. Each README gives
+the input requirements and commands. The saved tables contain model estimates
+and group summaries, not participant-level data.
+
 ## What is included
 
-The pipeline covers the analyses reported in the study:
+The original pipeline covers:
 
 - construction of the baseline analytic dataset from local ADNI-derived files;
 - descriptive statistics and diagnostic-stage group comparisons;
@@ -41,6 +60,7 @@ deliberately excluded from this public code release.
 |-- R/                  # helper functions shared by the analysis scripts
 |-- scripts/            # numbered analysis modules
 |-- config/             # lightweight analysis settings
+|-- publication_analysis/ # manuscript-specific code and aggregate results
 |-- data/
 |   |-- README.md
 |   `-- raw/            # local ADNI-derived input files, not tracked by Git

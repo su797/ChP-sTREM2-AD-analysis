@@ -1,0 +1,11 @@
+"id","n","valid","negative","nonconverged"
+"raw_fullmetric__single__ChP_to_sTREM2_to_Cognition__Multigroup",1000,989,11,0
+"raw_fullmetric__single__sTREM2_to_ChP_to_Cognition__Multigroup",1000,989,11,0
+"raw_fullmetric__single__ChP_to_TAU_to_Cognition__Multigroup",1000,969,31,0
+"raw_fullmetric__single__TAU_to_ChP_to_Cognition__Multigroup",1000,969,31,0
+"raw_fullmetric__single__ChP_to_PTAU_to_Cognition__Multigroup",1000,968,32,0
+"raw_fullmetric__single__PTAU_to_ChP_to_Cognition__Multigroup",1000,968,32,0
+"raw_fullmetric__single__ChP_to_ABETA_to_Cognition__Multigroup",1000,993,7,0
+"raw_fullmetric__single__ABETA_to_ChP_to_Cognition__Multigroup",1000,993,7,0
+"raw_fullmetric__parallel__ChP_to_sTREM2_PTAU_ABETA_parallel__Multigroup",1000,977,23,0
+"raw_fullmetric__parallel__ChP_to_sTREM2_TAU_ABETA_parallel__Multigroup",1000,978,22,0

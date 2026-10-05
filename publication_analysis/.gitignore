@@ -1,0 +1,12 @@
+# Keep local input files and rerun outputs out of version control.
+ChpSTREM2AD_analysis_dataset.csv
+matched_CN_vs_AD.csv
+matched_CN_vs_MCI.csv
+matched_MCI_vs_AD.csv
+analysis_outputs/
+output/
+bootstrap/
+*.rds
+*.RData
+.Rhistory
+.Rproj.user/

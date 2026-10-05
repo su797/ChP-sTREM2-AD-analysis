@@ -1,0 +1,10 @@
+Cog =~ indicator_1 + indicator_2 + indicator_3
+mediator_1 ~ a1*x + S_PTGENDER + S_AGE + PTEDUCAT + APOE401
+mediator_2 ~ d*mediator_1 + a2*x + S_PTGENDER + S_AGE + PTEDUCAT + APOE401
+Cog ~ b1*mediator_1 + b2*mediator_2 + c_prime*x + S_PTGENDER + S_AGE + PTEDUCAT + APOE401
+indirect_m1 := a1*b1
+indirect_m2 := a2*b2
+serial_indirect := a1*d*b2
+total_indirect := indirect_m1 + indirect_m2 + serial_indirect
+c_total := c_prime + total_indirect
+serial_share := serial_indirect / c_total

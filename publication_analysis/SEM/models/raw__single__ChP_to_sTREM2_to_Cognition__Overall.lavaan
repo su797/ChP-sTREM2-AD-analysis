@@ -1,0 +1,6 @@
+Cog =~ indicator_1 + indicator_2 + indicator_3
+mediator ~ a*x + S_PTGENDER + S_AGE + PTEDUCAT + APOE401
+Cog ~ b*mediator + c_prime*x + S_PTGENDER + S_AGE + PTEDUCAT + APOE401
+indirect := a*b
+c_total := c_prime + (a*b)
+proportion_mediated := indirect / c_total

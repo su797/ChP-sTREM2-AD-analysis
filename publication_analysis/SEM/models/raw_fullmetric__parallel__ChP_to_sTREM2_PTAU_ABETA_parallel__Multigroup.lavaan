@@ -1,0 +1,23 @@
+Cog =~ indicator_1 + indicator_2 + indicator_3
+mediator_1 ~ c(a1_CN, a1_MCI, a1_AD)* x + S_PTGENDER + S_AGE + PTEDUCAT + APOE401
+mediator_2 ~ c(a2_CN, a2_MCI, a2_AD)* x + S_PTGENDER + S_AGE + PTEDUCAT + APOE401
+mediator_3 ~ c(a3_CN, a3_MCI, a3_AD)* x + S_PTGENDER + S_AGE + PTEDUCAT + APOE401
+mediator_1 ~~ mediator_2
+mediator_1 ~~ mediator_3
+mediator_2 ~~ mediator_3
+Cog ~ c(b1_CN, b1_MCI, b1_AD)* mediator_1 + c(b2_CN, b2_MCI, b2_AD)* mediator_2 + c(b3_CN, b3_MCI, b3_AD)* mediator_3 + c(c_prime_CN, c_prime_MCI, c_prime_AD)* x + S_PTGENDER + S_AGE + PTEDUCAT + APOE401
+indirect_1_CN := a1_CN*b1_CN
+indirect_2_CN := a2_CN*b2_CN
+indirect_3_CN := a3_CN*b3_CN
+total_indirect_CN := indirect_1_CN + indirect_2_CN + indirect_3_CN
+c_total_CN := c_prime_CN + total_indirect_CN
+indirect_1_MCI := a1_MCI*b1_MCI
+indirect_2_MCI := a2_MCI*b2_MCI
+indirect_3_MCI := a3_MCI*b3_MCI
+total_indirect_MCI := indirect_1_MCI + indirect_2_MCI + indirect_3_MCI
+c_total_MCI := c_prime_MCI + total_indirect_MCI
+indirect_1_AD := a1_AD*b1_AD
+indirect_2_AD := a2_AD*b2_AD
+indirect_3_AD := a3_AD*b3_AD
+total_indirect_AD := indirect_1_AD + indirect_2_AD + indirect_3_AD
+c_total_AD := c_prime_AD + total_indirect_AD

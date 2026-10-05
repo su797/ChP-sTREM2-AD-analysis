@@ -1,0 +1,9 @@
+Cog =~ indicator_1 + indicator_2 + indicator_3
+mediator ~ c(a_CN, a_MCI, a_AD)* x + S_PTGENDER + S_AGE + PTEDUCAT + APOE401
+Cog ~ c(b_CN, b_MCI, b_AD)* mediator + c(c_prime_CN, c_prime_MCI, c_prime_AD)* x + S_PTGENDER + S_AGE + PTEDUCAT + APOE401
+indirect_CN := a_CN*b_CN
+c_total_CN := c_prime_CN + (a_CN*b_CN)
+indirect_MCI := a_MCI*b_MCI
+c_total_MCI := c_prime_MCI + (a_MCI*b_MCI)
+indirect_AD := a_AD*b_AD
+c_total_AD := c_prime_AD + (a_AD*b_AD)

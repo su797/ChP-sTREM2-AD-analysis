@@ -1,0 +1,10 @@
+"definition","step","chisq_diff","df_diff","p"
+"mixed","configural->metric",22.3882093938,4,0.00016773049157409
+"mixed","metric->scalar",44.1198290284,4,6.05840843123741e-09
+"mixed","scalar->strict",787.3375942615,6,8.38015565127431e-167
+"raw","configural->metric",9.0301365858,4,0.0603506079862322
+"raw","metric->scalar",69.3078288983,4,3.17763050812708e-14
+"raw","scalar->strict",70.7655413842,6,2.84804890673591e-13
+"log","configural->metric",42.2250126413,4,1.49827997769441e-08
+"log","metric->scalar",177.3587574644,4,2.75250267019566e-37
+"log","scalar->strict",1118.7775709455,6,1.80504273760959e-238

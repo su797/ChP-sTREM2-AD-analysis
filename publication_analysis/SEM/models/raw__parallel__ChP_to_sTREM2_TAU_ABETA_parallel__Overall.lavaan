@@ -1,0 +1,15 @@
+Cog =~ indicator_1 + indicator_2 + indicator_3
+mediator_1 ~ a1*x + S_PTGENDER + S_AGE + PTEDUCAT + APOE401
+mediator_2 ~ a2*x + S_PTGENDER + S_AGE + PTEDUCAT + APOE401
+mediator_3 ~ a3*x + S_PTGENDER + S_AGE + PTEDUCAT + APOE401
+mediator_1 ~~ mediator_2
+mediator_1 ~~ mediator_3
+mediator_2 ~~ mediator_3
+Cog ~ b1*mediator_1 + b2*mediator_2 + b3*mediator_3 + c_prime*x + S_PTGENDER + S_AGE + PTEDUCAT + APOE401
+indirect_1 := a1*b1
+indirect_2 := a2*b2
+indirect_3 := a3*b3
+total_indirect := indirect_1 + indirect_2 + indirect_3
+c_total := c_prime + total_indirect
+diff_sTREM2_tau := indirect_1 - indirect_2
+diff_sTREM2_ABETA := indirect_1 - indirect_3
