@@ -26,6 +26,22 @@ modules in the general pipeline below do not replace them. Each README gives
 the input requirements and commands. The saved tables contain model estimates
 and group summaries, not participant-level data.
 
+The `submission-2026-10-09` release freezes the code accompanying the journal
+submission. Its Additional file 3 ZIP and the 79 manuscript files under
+`publication_analysis/` are checked against [`submission_manifest.json`](submission_manifest.json).
+The repository-only `.gitignore` protects local inputs and rerun outputs.
+To check a downloaded copy using Python 3:
+
+```bash
+python tools/verify_submission.py
+python tools/verify_submission.py --zip /path/to/Additional_file_3_Analysis_Code_and_Results.zip
+```
+
+The general pipeline includes the same S11 pair-name validation as the local
+engineering workflow: `matched_CN_vs_AD.csv`, for example, selects the CN and
+AD groups when constructing the unmatched comparison. The manuscript-specific
+S11 reproduction remains in `publication_analysis/Matching/`.
+
 ## What is included
 
 The original pipeline covers:

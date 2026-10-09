@@ -115,6 +115,20 @@ run_abeta_censored_models <- function(data, threshold, group_name = "Overall") {
   out
 }
 
+parse_matched_pair <- function(matched_path, allowed_groups) {
+  filename <- basename(matched_path)
+  if (!grepl("^matched_.+\\.csv$", filename)) {
+    stop("Invalid matched-data filename: ", filename, call. = FALSE)
+  }
+  pair_name <- sub("^matched_", "", tools::file_path_sans_ext(filename))
+  pair_levels <- strsplit(pair_name, "_vs_", fixed = TRUE)[[1]]
+  if (length(pair_levels) != 2L || anyDuplicated(pair_levels) ||
+      any(!pair_levels %in% allowed_groups)) {
+    stop("Matched filename must identify two distinct known groups: ", filename, call. = FALSE)
+  }
+  list(name = pair_name, levels = pair_levels)
+}
+
 run_matched_key_models <- function() {
   matched_files <- list.files(result_data_clean_dir, pattern = "^matched_.*\\.csv$", full.names = TRUE)
   if (length(matched_files) == 0) {
@@ -124,12 +138,19 @@ run_matched_key_models <- function() {
   rows <- list()
   for (matched_path in matched_files) {
     matched_data <- read_project_data(matched_path)
-    pair_name <- sub("^matched_|\\.csv$", "", basename(matched_path))
-    pair_levels <- strsplit(pair_name, "_vs_")[[1]]
+    group_var <- project_config$variables$group_label_var
+    pair <- parse_matched_pair(matched_path, unique(as.character(analysis_data[[group_var]])))
+    pair_name <- pair$name
+    pair_levels <- pair$levels
     unmatched_pair <- analysis_data[as.character(analysis_data[[project_config$variables$group_label_var]]) %in% pair_levels, , drop = FALSE]
 
     for (sample_set in c("unmatched_pair", "matched_pair")) {
       sample_data <- if (sample_set == "matched_pair") matched_data else unmatched_pair
+      observed_groups <- unique(as.character(sample_data[[group_var]]))
+      if (anyNA(observed_groups) || !setequal(observed_groups, pair_levels)) {
+        stop("Both requested diagnostic groups must be present in ", pair_name,
+             " / ", sample_set, call. = FALSE)
+      }
       for (cfg in project_config$robustness$matched_key_models) {
         fit_rows <- fit_linear_model_base(
           data = sample_data,

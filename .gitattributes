@@ -1,0 +1,6 @@
+# Keep source checkouts consistent on Windows and Unix.
+* text eol=lf
+# Preserve the exact bytes distributed with Additional file 3.
+publication_analysis/** -text
+submission_manifest.json text eol=lf
+tools/verify_submission.py text eol=lf
