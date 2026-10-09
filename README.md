@@ -10,7 +10,7 @@ documents.
 ## Analyses accompanying the current manuscript
 
 For **Choroid plexus volume as a candidate imaging biomarker in Alzheimer's
-disease**, the materials from Additional file 3 are in
+disease**, the analysis code and aggregate results are in
 [`publication_analysis/`](publication_analysis/README.txt):
 
 - Incremental explanatory models and their saved results are in the top level
@@ -27,14 +27,13 @@ the input requirements and commands. The saved tables contain model estimates
 and group summaries, not participant-level data.
 
 The `submission-2026-10-09` release freezes the code accompanying the journal
-submission. Its Additional file 3 ZIP and the 79 manuscript files under
+submission. The 79 manuscript files under
 `publication_analysis/` are checked against [`submission_manifest.json`](submission_manifest.json).
 The repository-only `.gitignore` protects local inputs and rerun outputs.
 To check a downloaded copy using Python 3:
 
 ```bash
 python tools/verify_submission.py
-python tools/verify_submission.py --zip /path/to/Additional_file_3_Analysis_Code_and_Results.zip
 ```
 
 The general pipeline includes the same S11 pair-name validation as the local
